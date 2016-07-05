@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <img ng-src="{{ detail.image }}" class="bike"/>
+        <h1> {{ detail.name }} {{ detail.model }} {{ detail.year }}</h1>
+        <p id="price">Price: {{ detail.price | currency }}</p>
+        <hr>
+        <p id="desc"> {{ detail.description }}</p>
+    </div>
+</div>
+
+

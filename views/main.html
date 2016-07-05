@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <p id="logo">Bike Store</p>
+        </div>
+
+        <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input ng-model="search" type="text" class="form-control" placeholder="Search">
+            </div>
+       </form>
+    </div>
+</nav>
+
+<div id="main" class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="dropdown">
+                <div class="form-group">
+                    <label for="sel1">Sort by:</label>
+                    <select ng-model="sort" class="form-control" id="sel1">
+                        <option value="price">Lowest price</option>
+                        <option value="-price">Highest price</option>
+                        <option value="-year">Newest</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <ul class="bikes">
+                <li ng-repeat="bike in bikes | filter: search |orderBy: sort" >
+                    <a href="#/bikes/{{ bike.id }}" class="thumb">
+                        <img ng-src="{{ bike.image }}" alt="{{ bike.name }}" />
+                    </a>
+                    <a href="#/bikes/{{ bike.id }}">{{ bike.name }} {{ bike.model }}</a>
+                    <p>Year: {{bike.year}}</p>
+                    <p>Price: {{bike.price | currency}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
